@@ -1,0 +1,1 @@
+# azure-devops-template-helper-vscode-extension-base
