@@ -24,9 +24,6 @@
         "vsce": "^1.96.1",
         "azure-devops-template-helper": "hvdb/azure-devops-template-helper"
     },
-    "dependencies": {
-        "vscode-extension-updater": "^1.2.0"
-    },
     "configuration": {
         "prefix": "thb",
         "templates_dir": "templates"
