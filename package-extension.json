@@ -1,0 +1,29 @@
+{
+    "name": "azure-devops-template-helper-vscode-extension-base",
+    "displayName": "Azure snippets",
+    "description": "Snippets for templates",
+    "version": "",
+    "publisher": "hvdb",
+    "activationEvents": ["onCommand:thb.update"],
+    "main": "./extension.js",
+    "repository": {
+		"type": "git",
+		"url": ""
+	},
+    "icon": "",
+    "engines": {
+        "vscode": "^1.44.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "commands": [
+			{
+				"command": "thb.update",
+				"title": "thb: Check for new updates"
+			}
+		],
+		"snippets": []
+    }
+}
