@@ -39,7 +39,6 @@ function createExtensionConfiguration(filesNames: string[]) {
         });
     })
 
-    extensionPkgJson.version = pkgJson.version;
     extensionPkgJson.contributes.snippets = snippets;
 
     fs.writeFileSync(path.join(outputPackageLocation, 'package.json'), JSON.stringify(extensionPkgJson, null, 4));
