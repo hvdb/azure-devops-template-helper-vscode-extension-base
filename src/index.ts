@@ -5,6 +5,17 @@ import * as fs from 'fs';
 const outputFolder = 'dist';
 const projectFolderName = 'vs-extension';
 
+function copyFolderSync(from: string, to: string) {
+    fs.mkdirSync(to);
+    fs.readdirSync(from).forEach(element => {
+        if (fs.lstatSync(path.join(from, element)).isFile()) {
+            fs.copyFileSync(path.join(from, element), path.join(to, element));
+        } else {
+            copyFolderSync(path.join(from, element), path.join(to, element));
+        }
+    });
+}
+
 /**
  * This gets the template raw json data and generate the snippets for vscode.
  */
@@ -44,12 +55,14 @@ function createExtensionConfiguration(filesNames: string[]) {
     fs.writeFileSync(path.join(outputPackageLocation, 'package.json'), JSON.stringify(extensionPkgJson, null, 4));
     // Copy extension.js
     fs.writeFileSync(path.join(outputPackageLocation, 'extension.js'), fs.readFileSync('dist/extension.js'));
+    // Copy all views
+    copyFolderSync(path.join(__dirname, '..', outputFolder, 'views'), path.join(outputPackageLocation, 'views'))
     // Copy readme
     fs.writeFileSync(path.join(outputPackageLocation, 'README.md'), fs.readFileSync('README.md').toString());
     // Copy license
     fs.writeFileSync(path.join(outputPackageLocation, 'LICENSE'), fs.readFileSync('LICENSE').toString());
     // TODO: Icon
-    
+
 }
 
 run();
