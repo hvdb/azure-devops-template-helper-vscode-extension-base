@@ -6,7 +6,7 @@ const outputFolder = 'dist';
 const projectFolderName = 'vs-extension';
 
 
-function copyFolderSync(from, to) {
+function copyFolderSync(from: string, to: string) {
     if (!fs.existsSync(to)) {
         fs.mkdirSync(to);
     }
