@@ -63,6 +63,8 @@ function createExtensionConfiguration(filesNames: string[]) {
     fs.writeFileSync(path.join(outputPackageLocation, 'extension.js'), fs.readFileSync('dist/extension.js'));
     // Copy all views
     copyFolderSync(path.join(__dirname, '..', outputFolder, 'views'), path.join(outputPackageLocation, 'views'))
+    // Copy codemods
+    copyFolderSync(path.join(__dirname, '..', outputFolder, 'codemods'), path.join(outputPackageLocation, 'codemods'))
     // Copy the node_modules
     copyFolderSync(path.join(__dirname, '..', outputFolder, 'node_modules'), path.join(outputPackageLocation, 'node_modules'))
     // Copy readme
